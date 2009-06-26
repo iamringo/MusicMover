@@ -17,7 +17,7 @@ def addtosorted(name,dir,options)
   genre = %x{metaflac --show-tag=genre "#{name}"}.gsub(/genre=/i,"").gsub(/\//, "-").gsub("\n","").gsub("\"","\'")
   newfile = dir+"/Songs/"+title+" ("+artist+", "+album+" Track "+track+").mp3"
   artistlink = dir+"/Artists/"+artist+"/"+album+"/"+track+" - "+title+".mp3"
-  allsongslink = dir+"/Artists/"+artist+"/All Songs/"+title+" ("+artist+", "+album+" Track "+track+").flac"
+  allsongslink = dir+"/Artists/"+artist+"/All Songs/"+title+" ("+artist+", "+album+" Track "+track+").mp3"
   albumlink = dir+"/Albums/"+album+"/"+track+" - "+title+".mp3"
   %x{flac -dc "#{name}" | lame "#{options}" --tt "#{title}" --ta "#{artist}" --tl "#{album}" --ty "#{year}" --tn "#{track}" --tg "#{genre}" - "#{newfile}"} unless File::exists?(newfile)
   condmakedir(dir,"/Artists/"+artist)
@@ -43,8 +43,6 @@ puts "Where do you want the converted music to go?"
 outdir = gets.chomp
 puts "Any command-line options to pass to lame?"
 options = gets.chomp
-#indir = "/home/iamringo/Testing"
-#outdir = "/home/iamringo/Testing/Music"
 condmakedir(outdir,"/Songs")
 condmakedir(outdir,"/Albums")
 condmakedir(outdir,"/Artists")

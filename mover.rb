@@ -41,8 +41,6 @@ puts "What directory is the music in?"
 indir = gets.chomp
 puts "Where do you want it to go?"
 outdir = gets.chomp
-#indir = "/home/iamringo/Testing"
-#outdir = "/home/iamringo/Testing/Music"
 condmakedir(outdir,"/Songs")
 condmakedir(outdir,"/Albums")
 condmakedir(outdir,"/Artists")
