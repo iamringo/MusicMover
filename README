@@ -1,0 +1,17 @@
+These two scripts sort and convert your lossless music.
+
+mover.rb asks where your flac files are and where you want the sorted library to be,
+and then copies over and renames the files based on tag into a subdirectory called
+"Songs". It then creates and Albums and an Artists directory, and subdirectories for all
+the various artists and albums in your collection, and then fills the appropriate sub-
+directories with hard links to the appropriate songs.
+
+converter.rb does the same, except it also transcodes the songs with LAME first. You can
+specify what command line options you wish to pass to LAME.
+
+Requirements: A Linux-based operating system, Ruby 1.8.7, lame, metaflac, and a collection
+of flac files
+
+P.S. This code is currently kind of crappy, and a lot of my personal preferences are
+hard-coded.
+
